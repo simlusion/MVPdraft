@@ -1,0 +1,144 @@
+/*################################# Responsive Navbar #################################*/
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 100;
+  width: 100%;
+  height: var(--header-height);
+
+  font-size: var(--small-font-size);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-content: center;
+
+  height: var(--header-height);
+  max-width: var(--max-width);
+  color: var(--light-color-alt);
+
+  width: 100%;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  list-style: none;
+  margin-right: 20px;
+  justify-self: end;
+  z-index: 101;
+}
+
+.nav-links {
+  padding: 0px;
+  margin: 0 15px;
+
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: transparent;
+  color: var(--light-colot-alt);
+
+  z-index: 101;
+}
+
+.nav-links:hover {
+  color: var(--light-color);
+  border-color: var(--light-color);
+  transition: all 0.5s ease-out;
+}
+
+.menu-toggle .bar {
+  width: 35px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--light-color-alt);
+  color: var(--dark-color);
+  z-index: 101;
+}
+
+/*################################# HAMBURGER MENU TRESHOLD  #################################*/
+@media screen and (max-width: 600px) {
+  .nav-container,
+  header {
+    background-color: var(--black-color);
+    height: var(--header-height-small);
+  }
+
+  .navbar {
+    height: var(--header-height-small);
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height-small);
+    left: -100%;
+    grid-template-columns: auto;
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  #mobile-menu {
+    position: fixed;
+    top: 1vh;
+    right: 10px;
+    color: var(--light-color-alt);
+  }
+
+  .menu-toggle .bar {
+    display: block;
+    background-color: var(--light-color-alt);
+    cursor: pointer;
+  }
+
+  .menu-toggle:hover {
+    cursor: pointer;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu.active {
+    background-color: var(--black-color);
+    color: var(--light-color-alt);
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-links {
+    display: table;
+    width: 100%;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 0;
+    text-align: center;
+  }
+
+  .nav-links:hover {
+    color: var(--black-color);
+    background-color: var(--light-color-alt);
+    transition: all 0.3s ease-out;
+  }
+}
