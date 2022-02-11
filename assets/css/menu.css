@@ -19,7 +19,7 @@
 
 .navbar {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 0.3fr auto 1fr;
   align-items: center;
   justify-content: center;
 
@@ -28,6 +28,26 @@
   color: var(--light-color-alt);
 
   width: 100%;
+}
+
+#nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  height: 100%;
+  width: auto;
+  margin-left: 20px;
+  cursor: pointer;
+  z-index: 101;
+  color: var(--light-colot-alt);
+}
+
+#nav-logo img {
+  height: 100%;
+  width: auto;
+  max-height: var(--header-height-half);
+  z-index: 102;
 }
 
 .nav-menu {
@@ -54,6 +74,11 @@
 .nav-links:hover {
   color: var(--light-color);
   border-color: var(--light-color);
+  transition: all 0.5s ease-out;
+}
+
+#nav-logo:hover {
+  color: var(--light-color);
   transition: all 0.5s ease-out;
 }
 
@@ -88,6 +113,10 @@
     margin: 0;
     opacity: 0;
     transition: all 0.5s ease;
+  }
+
+  #nav-logo {
+    margin-left: 10px;
   }
 
   #mobile-menu {
